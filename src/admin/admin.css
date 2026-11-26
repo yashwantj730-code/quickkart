@@ -1,0 +1,64 @@
+.admin { display: flex; min-height: 100vh; background: #f4f6f5; }
+.adm-nav { width: 230px; flex: none; background: #0f1f13; color: #fff; padding: 18px 14px; display: flex; flex-direction: column; gap: 18px; position: sticky; top: 0; height: 100vh; }
+.adm-nav .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.adm-nav .logo-text { color: #fff; } .adm-nav .logo-text b { color: var(--ink); }
+.adm-tag { background: var(--yellow); color: var(--ink); font-size: .65rem; font-weight: 800; border-radius: 6px; padding: 2px 6px; }
+.adm-nav nav { display: flex; flex-direction: column; gap: 4px; }
+.adm-nav nav a { display: flex; gap: 10px; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; color: #cfe3d3; font-weight: 600; }
+.adm-nav nav a.active, .adm-nav nav a:hover { background: rgba(255,255,255,.1); color: #fff; }
+.adm-nav nav a.active { box-shadow: inset 3px 0 0 var(--yellow); }
+.adm-nav .back { margin-top: auto; color: #9fb8a5; text-decoration: none; font-size: .85rem; }
+.adm-main { flex: 1; min-width: 0; padding: 22px; }
+.adm-page { max-width: 1200px; margin: 0 auto; }
+.adm-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 14px; }
+.kpi { background: #fff; border-radius: 16px; padding: 16px; display: flex; gap: 12px; align-items: center; border: 1px solid var(--line); }
+.kpi-ic { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; background: #f1f5f2; font-size: 1.3rem; flex: none; }
+.kpi-v { font-size: 1.4rem; font-weight: 800; }
+.kpi.green .kpi-ic { background: var(--green-l); } .kpi.warn .kpi-ic { background: #fff4d6; } .kpi.warn .kpi-v { color: #b45309; }
+.charts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.charts .card { border: 1px solid var(--line); min-width: 0; }
+.legend { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; font-size: .8rem; }
+.legend li { display: flex; align-items: center; gap: 6px; } .legend b { margin-left: auto; }
+.legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.lowlist { list-style: none; padding: 0; margin: 0 0 8px; } .lowlist li { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
+.pill { display: inline-block; font-size: .75rem; font-weight: 800; border-radius: 99px; padding: 2px 9px; background: #eef2f0; }
+.pill.red { background: #fdecec; color: var(--red); } .pill.amber { background: #fff4d6; color: #92400e; } .pill.green { background: var(--green-l); color: var(--green); }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 14px; }
+.filters input, .filters select { height: 44px; border: 1.5px solid var(--line); border-radius: 10px; padding: 0 12px; background: #fff; font-size: 16px; min-width: 0; }
+.filters input:not([type=date]) { flex: 1 1 220px; }
+.table-wrap { background: #fff; border-radius: 16px; border: 1px solid var(--line); overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.table th { text-align: left; font-size: .74rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); padding: 12px; border-bottom: 1px solid var(--line); background: #fafbfa; }
+.table td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.table tr.dim td { opacity: .55; }
+.table .actions { white-space: nowrap; text-align: right; } .table .actions .btn { margin-left: 4px; }
+.pdot { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; margin-right: 6px; vertical-align: middle; }
+.pager { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 12px; }
+.switch { position: relative; display: inline-block; width: 46px; height: 28px; }
+.switch input { opacity: 0; width: 100%; height: 100%; position: absolute; margin: 0; cursor: pointer; z-index: 1; }
+.switch span { position: absolute; inset: 0; background: #d1d5db; border-radius: 99px; transition: .2s; }
+.switch span::after { content: ''; position: absolute; left: 3px; top: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; transition: .2s; }
+.switch input:checked + span { background: var(--green); } .switch input:checked + span::after { transform: translateX(18px); }
+.timeline { padding-left: 18px; font-size: .9rem; }
+@media (max-width: 1000px) { .kpis { grid-template-columns: repeat(2, 1fr); } .charts { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+  .admin { flex-direction: column; }
+  .adm-nav { width: auto; height: auto; position: sticky; top: 0; z-index: 20; flex-direction: row; align-items: center; padding: 8px 10px; gap: 8px; overflow-x: auto; }
+  .adm-nav .logo-text { display: none; }
+  .adm-nav nav { flex-direction: row; } .adm-nav nav a { padding: 0 10px; white-space: nowrap; gap: 4px; font-size: .85rem; } .adm-tag { display: none; }
+  .adm-nav nav a.active { box-shadow: inset 0 -3px 0 var(--yellow); }
+  .adm-main { padding: 14px 10px; }
+  .kpi { padding: 12px; } .kpi-v { font-size: 1.1rem; }
+  /* table -> cards */
+  .table thead { display: none; }
+  .table, .table tbody, .table tr, .table td { display: block; width: 100%; }
+  .table tr { border-bottom: 8px solid #f4f6f5; padding: 6px 0; }
+  .table td { border: 0; padding: 5px 12px; display: flex; justify-content: space-between; gap: 10px; text-align: right; }
+  .table td::before { content: attr(data-l); font-weight: 700; color: var(--muted); font-size: .75rem; text-transform: uppercase; text-align: left; }
+  .table td[data-l="Product"], .table td[data-l="Order"], .table td[data-l="Name"] { text-align: left; display: block; }
+  .table td[data-l="Product"]::before, .table td[data-l="Order"]::before, .table td[data-l="Name"]::before { display: none; }
+  .table .actions { justify-content: flex-end; } .table .actions::before { display: none; }
+  .table-wrap { overflow: visible; }
+}
+@media (max-width: 400px) { .kpis { grid-template-columns: 1fr 1fr; gap: 8px; } .kpi-ic { display: none; } .legend { grid-template-columns: 1fr; } }
